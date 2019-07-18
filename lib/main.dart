@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'compound.dart';
-import 'layout.dart';
+import 'layout2.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: Layout(),
+      home: Layout2(),
     );
   }
 }
