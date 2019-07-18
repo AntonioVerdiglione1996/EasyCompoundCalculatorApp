@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class CompoundIntrestCalculator extends StatefulWidget {
@@ -84,6 +83,7 @@ class _CompoundIntrestCalculatorState extends State<CompoundIntrestCalculator> {
     )),
   );
   final vSpace = SizedBox(height: 2,);
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(

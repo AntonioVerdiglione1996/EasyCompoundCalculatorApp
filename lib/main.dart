@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'compound.dart';
+import 'layout.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,10 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.green
-      ),
-      home: CompoundIntrestCalculator(),
+      home: Layout(),
     );
   }
 }
