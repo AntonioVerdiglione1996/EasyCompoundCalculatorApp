@@ -38,12 +38,11 @@ class _Layout2 extends State<Layout2> {
   void initState() {
     super.initState();
     isFirstTimeCycle = true;
-    initialInvestment= 0.0;
+    initialInvestment = 0.0;
     roi = 0.0;
     additional = 0.0;
     compoundTimes = 0.0;
-    finalValue=0.0;
-    myControllerAdditional.text="0";
+    finalValue = 0.0;
   }
 
   @override
@@ -68,14 +67,17 @@ class _Layout2 extends State<Layout2> {
       },
       controller: controller,
       decoration: InputDecoration(
-          border:  OutlineInputBorder(
+          border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide(
-                width: 0, 
-                style: BorderStyle.none,
+              width: 0,
+              style: BorderStyle.none,
             ),
-        ),
-          suffix: Text(suffix,style: TextStyle(color: Colors.white),),
+          ),
+          suffix: Text(
+            suffix,
+            style: TextStyle(color: Colors.white),
+          ),
           filled: true,
           fillColor: Colors.black26,
           labelText: label,
@@ -119,7 +121,9 @@ class _Layout2 extends State<Layout2> {
             //TEXFIELD INITIAL
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-              child: customTextField(myControllerInitialInvestment, "Initial Investment",suffix: r"$"),
+              child: customTextField(
+                  myControllerInitialInvestment, "Initial Investment",
+                  suffix: r"$"),
             ),
             //TEXFIELDS ROW
             Padding(
@@ -157,14 +161,20 @@ class _Layout2 extends State<Layout2> {
             children: <Widget>[
               //double.parse(myControllerInitialInvestment.text)
               CardItem(
-                label: "Invested", pathIcon: "assets/invested_icon.png", symbol: r"$", valueToDisplay: initialInvestment,
+                label: "Invested",
+                pathIcon: "assets/invested_icon.png",
+                symbol: r"$",
+                valueToDisplay: initialInvestment,
               ),
               SizedBox(
                 width: 5,
               ),
               //double.parse(myControllerRoi.text)
               CardItem(
-                label: "ROI",pathIcon: "assets/roi_icon.png",symbol: r"%",valueToDisplay:  roi,
+                label: "ROI",
+                pathIcon: "assets/roi_icon.png",
+                symbol: r"%",
+                valueToDisplay: roi,
               ),
             ],
           ),
@@ -179,13 +189,20 @@ class _Layout2 extends State<Layout2> {
             children: <Widget>[
               //double.parse(myControllerAdditional.text)
               CardItem(
-                label: "Additional",pathIcon: "assets/Additional_icon.png",symbol: r"$", valueToDisplay: additional,
+                label: "Additional",
+                pathIcon: "assets/Additional_icon.png",
+                symbol: r"$",
+                valueToDisplay: additional,
               ),
               SizedBox(
                 width: 5,
               ),
               // double.parse(myControllerCompoundTimes.text)
-              CardItem(label: "Compound \nCycle",pathIcon: "assets/cycle.png",valueToDisplay:compoundTimes,),
+              CardItem(
+                label: "Compound \nCycle",
+                pathIcon: "assets/cycle.png",
+                valueToDisplay: compoundTimes,
+              ),
             ],
           ),
         ),
@@ -194,7 +211,12 @@ class _Layout2 extends State<Layout2> {
           top: 500,
           left: 16,
           right: 16,
-          child: CardItem(label: "Final Value",pathIcon: "assets/finalvalue.png",symbol: r"$", valueToDisplay: finalValue, width: 400),
+          child: CardItem(
+              label: "Final Value",
+              pathIcon: "assets/finalvalue.png",
+              symbol: r"$",
+              valueToDisplay: finalValue,
+              width: 400),
         ),
         //BUTTON
         Positioned(
@@ -204,19 +226,27 @@ class _Layout2 extends State<Layout2> {
           child: RaisedGradientButton(
             child: Text(
               "Calculate",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,),
             ),
             onPressed: () {
               setState(() {
-                    isFirstTimeCycle = true;
-                    initialInvestment = double.parse(myControllerInitialInvestment.text);
-                    roi = double.parse(myControllerRoi.text);
-                    additional = double.parse(myControllerAdditional.text != null ? myControllerAdditional.text: 0 );
-                    compoundTimes = double.parse(myControllerCompoundTimes.text);
-                    finalValue = calculateCompound(initialInvestment, roi, additional, compoundTimes);
+                if (myControllerAdditional.text =="") {
+                  setState(() {
+                    myControllerAdditional.text = "0";
                   });
+                }
+                isFirstTimeCycle = true;
+                initialInvestment =
+                    double.parse(myControllerInitialInvestment.text);
+                roi = double.parse(myControllerRoi.text);
+                compoundTimes = double.parse(myControllerCompoundTimes.text);
+                additional = double.parse(myControllerAdditional.text);
+                finalValue = calculateCompound(
+                    initialInvestment, roi, additional, compoundTimes);
+              });
             },
-            gradient: LinearGradient(colors: [CustomColors.aquaGreen,CustomColors.cyan]),
+            gradient: LinearGradient(
+                colors: [CustomColors.aquaGreen, CustomColors.cyan]),
           ),
         ),
       ]),
