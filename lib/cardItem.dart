@@ -7,8 +7,9 @@ class CardItem extends StatefulWidget {
   String symbol;
 
   double valueToDisplay;
+  double width;
 
-  CardItem({this.label, this.pathIcon,this.labelFontSize=22,this.valueToDisplay,this.symbol=""});
+  CardItem({this.label, this.pathIcon,this.labelFontSize=18,this.valueToDisplay,this.symbol="",this.width=181});
   @override
   State<StatefulWidget> createState() => _CardItem();
 }
@@ -23,31 +24,31 @@ class _CardItem extends State<CardItem> {
               ),
         elevation: 15,
         child: SizedBox(
-          width: 181,
+          width: widget.width,
           height: 90,
           child: Stack(
             children: <Widget>[
               Positioned(
                 top: 10,
-                left: 5,
+                left: 12,
                 child: Text(
                   widget.label,
-                  style: TextStyle(color: Colors.grey, fontSize: widget.labelFontSize),
+                  style: TextStyle(color: Colors.grey, fontSize: widget.labelFontSize,height:0.8),
                   maxLines: 2,
                 ),
               ),
               Positioned(
                 top: 10,
-                right: 5,
+                right: 12,
                 child: Image(
                   image: AssetImage(widget.pathIcon),
                 ),
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
               ),
               Positioned(
                   top: 46,
-                  left: 5,
+                  left: 12,
                   child: Text(
                     widget.valueToDisplay.toStringAsFixed(2) + " ${widget.symbol}",
                     style: TextStyle(color: Colors.black, fontSize: 22),

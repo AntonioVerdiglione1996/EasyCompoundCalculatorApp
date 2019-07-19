@@ -23,13 +23,14 @@ class RaisedGradientButton extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
         gradient: gradient,
-        boxShadow: [
-        BoxShadow(
-          color: Colors.grey[500],
-          offset: Offset(0.0, 1.5),
-          blurRadius: 1.5,
-        ),
-      ]),
+      //   boxShadow: [
+      //   BoxShadow(
+      //     color: Colors.grey[500],
+      //     offset: Offset(0.0, 1.5),
+      //     blurRadius: 1.5,
+      //   ),
+      // ]
+      ),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
