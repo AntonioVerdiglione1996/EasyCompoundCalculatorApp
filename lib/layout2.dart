@@ -179,7 +179,7 @@ class _Layout2 extends State<Layout2> {
             children: <Widget>[
               //double.parse(myControllerAdditional.text)
               CardItem(
-                label: "Additional",pathIcon: "assets/save_money.png",symbol: r"$", valueToDisplay: additional,
+                label: "Additional",pathIcon: "assets/Additional_icon.png",symbol: r"$", valueToDisplay: additional,
               ),
               SizedBox(
                 width: 5,
