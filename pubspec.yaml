@@ -9,6 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_launcher_icons:
+  firebase_admob: 
 
   cupertino_icons: ^0.1.2
 

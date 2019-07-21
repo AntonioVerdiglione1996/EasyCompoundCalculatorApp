@@ -1,8 +1,10 @@
+import 'package:compound_intrest_calculator/adMobHelper.dart';
 import 'package:compound_intrest_calculator/cardItem.dart';
 import 'package:compound_intrest_calculator/customColors.dart';
 import 'package:flutter/material.dart';
 
 import 'raisedGradientButton.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 
 class Layout2 extends StatefulWidget {
   @override
@@ -36,13 +38,17 @@ class _Layout2 extends State<Layout2> {
 
   @override
   void initState() {
-    super.initState();
     isFirstTimeCycle = true;
     initialInvestment = 0.0;
     roi = 0.0;
     additional = 0.0;
     compoundTimes = 0.0;
     finalValue = 0.0;
+    AdMobHelper.initStateAd();
+
+
+    super.initState();
+
   }
 
   @override
@@ -51,6 +57,7 @@ class _Layout2 extends State<Layout2> {
     myControllerRoi.dispose();
     myControllerCompoundTimes.dispose();
     myControllerAdditional.dispose();
+    AdMobHelper.disposeMyAd();
     super.dispose();
   }
 
@@ -58,7 +65,7 @@ class _Layout2 extends State<Layout2> {
       {String suffix = ""}) {
     return TextField(
       cursorColor: Colors.white,
-      style: TextStyle(color: Colors.white),
+      style: TextStyle(color: Colors.white,fontSize: 14,letterSpacing: 0.25),
       keyboardType: TextInputType.number,
       onSubmitted: (value) {
         setState(() {
@@ -90,11 +97,11 @@ class _Layout2 extends State<Layout2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: <Widget>[
+      body:  Stack(children: <Widget>[
         //BLU COVER ROUNDED
         Container(
           width: double.infinity,
-          height: 367,
+          height: 330,
           decoration: BoxDecoration(
               borderRadius: new BorderRadius.only(
                   bottomLeft: const Radius.circular(32.0),
@@ -151,9 +158,52 @@ class _Layout2 extends State<Layout2> {
                 child: customTextField(myControllerAdditional, "Additional")),
           ],
         ),
-        //CARDS ROW 1
+        //BUTTON
         Positioned(
           top: 300,
+          left: 112,
+          right: 112,
+          child: RaisedGradientButton(
+            child: Text(
+              "Calculate",
+              style: TextStyle(
+                color: CustomColors.blue_sky,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 0.25
+              ),
+            ),
+            onPressed: () {
+              setState(() {
+                if (myControllerAdditional.text == "") {
+                  setState(() {
+                    myControllerAdditional.text = "0";
+                  });
+                }
+                isFirstTimeCycle = true;
+                initialInvestment =
+                    double.parse(myControllerInitialInvestment.text);
+                roi = double.parse(myControllerRoi.text);
+                compoundTimes = double.parse(myControllerCompoundTimes.text);
+                additional = double.parse(myControllerAdditional.text);
+                finalValue = calculateCompound(
+                    initialInvestment, roi, additional, compoundTimes);
+              });
+            },
+            gradient: LinearGradient(colors: [Colors.white, Colors.white]),
+          ),
+        ),
+        //RESULTS TEXT
+        Positioned(
+          top: 355,
+          left: 25,
+          child: Text(
+            "Results",
+            style: TextStyle(color: CustomColors.blue_sky,fontWeight: FontWeight.bold,fontSize: 15,letterSpacing: 0.25),
+          ),
+        ),
+        //CARDS ROW 1
+        Positioned(
+          top: 375,
           left: 16,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -181,7 +231,7 @@ class _Layout2 extends State<Layout2> {
         ),
         //CARDS ROW 2
         Positioned(
-          top: 400,
+          top: 475,
           left: 16,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -208,7 +258,7 @@ class _Layout2 extends State<Layout2> {
         ),
         //BIG CARD
         Positioned(
-          top: 500,
+          top: 575,
           left: 16,
           right: 16,
           child: CardItem(
@@ -218,38 +268,7 @@ class _Layout2 extends State<Layout2> {
               valueToDisplay: finalValue,
               width: 400),
         ),
-        //BUTTON
-        Positioned(
-          top: 610,
-          left: 18,
-          right: 18,
-          child: RaisedGradientButton(
-            child: Text(
-              "Calculate",
-              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,),
-            ),
-            onPressed: () {
-              setState(() {
-                if (myControllerAdditional.text =="") {
-                  setState(() {
-                    myControllerAdditional.text = "0";
-                  });
-                }
-                isFirstTimeCycle = true;
-                initialInvestment =
-                    double.parse(myControllerInitialInvestment.text);
-                roi = double.parse(myControllerRoi.text);
-                compoundTimes = double.parse(myControllerCompoundTimes.text);
-                additional = double.parse(myControllerAdditional.text);
-                finalValue = calculateCompound(
-                    initialInvestment, roi, additional, compoundTimes);
-              });
-            },
-            gradient: LinearGradient(
-                colors: [CustomColors.aquaGreen, CustomColors.cyan]),
-          ),
-        ),
-      ]),
+      ])
     );
   }
 }
