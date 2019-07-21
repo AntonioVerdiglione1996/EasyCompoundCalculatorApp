@@ -13,7 +13,7 @@ class AdMobHelper {
   static BannerAd _bannerAd;
 
   static BannerAd createBannerAd(){
-    return BannerAd(adUnitId: BannerAd.testAdUnitId,size: AdSize.fullBanner ,targetingInfo: targetingInfo);
+    return BannerAd(adUnitId: BannerAd.testAdUnitId,size: AdSize.smartBanner ,targetingInfo: targetingInfo);
   }
 
   static void initStateAd(){

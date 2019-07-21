@@ -30,7 +30,7 @@ class _CardItem extends State<CardItem> {
           ),
           child: SizedBox(
             width: widget.width,
-            height: 90,
+            height: 85,
             child: Stack(
               children: <Widget>[
                 Positioned(
@@ -56,7 +56,7 @@ class _CardItem extends State<CardItem> {
                   height: 30,
                 ),
                 Positioned(
-                    top: 55,
+                    top: 50,
                     left: 12,
                     child: Text(
                       widget.valueToDisplay.toStringAsFixed(2) +
