@@ -1,11 +1,30 @@
 import 'package:flutter/material.dart';
 
-class CustomColors{
+class CustomColors {
   CustomColors._();
-static const MaterialColor cyan = MaterialColor(
+
+  static const int blue = 0xFF389dbd;
+
+  static const MaterialColor blue_sky = MaterialColor(
+    blue,
+    <int, Color>{
+      50: Color(0xFF389dbd),
+      100: Color(0xFF389dbd),
+      200: Color(0xFF389dbd),
+      300: Color(0xFF389dbd),
+      400: Color(0xFF389dbd),
+      500: Color(blue),
+      600: Color(0xFF389dbd),
+      700: Color(0xFF389dbd),
+      800: Color(0xFF389dbd),
+      900: Color(0xFF389dbd),
+    },
+  );
+
+  static const MaterialColor cyan = MaterialColor(
     _cyan,
     <int, Color>{
-       50: Color(0xFFE3F2FD),
+      50: Color(0xFFE3F2FD),
       100: Color(0xFFBBDEFB),
       200: Color(0xFF90CAF9),
       300: Color(0xFF64B5F6),
@@ -22,7 +41,7 @@ static const MaterialColor cyan = MaterialColor(
   static const MaterialColor aquaGreen = MaterialColor(
     _aquaGreen,
     <int, Color>{
-       50: Color(0xFFE3F2FD),
+      50: Color(0xFFE3F2FD),
       100: Color(0xFFBBDEFB),
       200: Color(0xFF90CAF9),
       300: Color(0xFF64B5F6),

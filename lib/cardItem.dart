@@ -25,13 +25,12 @@ class _CardItem extends State<CardItem> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Card(
-        elevation: 4,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: SizedBox(
             width: widget.width,
-            height: 90,
+            height: 85,
             child: Stack(
               children: <Widget>[
                 Positioned(
@@ -40,15 +39,16 @@ class _CardItem extends State<CardItem> {
                   child: Text(
                     widget.label,
                     style: TextStyle(
-                        color: Colors.grey,
+                        color: Colors.grey[600],
                         fontSize: widget.labelFontSize,
+                        letterSpacing: 0.25,
                         height: 0.8),
                     maxLines: 2,
                   ),
                 ),
                 Positioned(
                   top: 10,
-                  right: 12,
+                  right: 10,
                   child: Image(
                     image: AssetImage(widget.pathIcon),
                   ),
@@ -56,12 +56,12 @@ class _CardItem extends State<CardItem> {
                   height: 30,
                 ),
                 Positioned(
-                    top: 55,
+                    top: 50,
                     left: 12,
                     child: Text(
                       widget.valueToDisplay.toStringAsFixed(2) +
                           " ${widget.symbol}",
-                      style: TextStyle(color: Colors.black, fontSize: 22),
+                      style: TextStyle(color: Colors.grey[800], fontSize: 22),
                     )),
               ],
             ),
