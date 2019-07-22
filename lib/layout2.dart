@@ -101,7 +101,7 @@ class _Layout2 extends State<Layout2> {
           //BLU COVER ROUNDED
           Container(
             width: double.infinity,
-            height: 305,
+            height: 310,
             decoration: BoxDecoration(
                 borderRadius: new BorderRadius.only(
                     bottomLeft: const Radius.circular(32.0),
@@ -155,12 +155,12 @@ class _Layout2 extends State<Layout2> {
               //TEXTFIELD: MONTHLY
               Padding(
                   padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-                  child: customTextField(myControllerAdditional, "Additional year investment",suffix:"+ each year")),
+                  child: customTextField(myControllerAdditional, "Re-Invested each year ",suffix:"+ each year")),
             ],
           ),
           //BUTTON
           Positioned(
-            top: 280,
+            top: 285,
             left: 112,
             right: 112,
             child: RaisedGradientButton(
@@ -217,7 +217,7 @@ class _Layout2 extends State<Layout2> {
               children: <Widget>[
                 //double.parse(myControllerInitialInvestment.text)
                 CardItem(
-                  label: "Invested",
+                  label: "Invested:",
                   pathIcon: "assets/invested_icon.png",
                   symbol: r"$",
                   valueToDisplay: initialInvestment,
@@ -227,7 +227,7 @@ class _Layout2 extends State<Layout2> {
                 ),
                 //double.parse(myControllerRoi.text)
                 CardItem(
-                  label: "ROI",
+                  label: "ROI:",
                   pathIcon: "assets/roi_icon.png",
                   symbol: r"%",
                   valueToDisplay: roi,
@@ -246,7 +246,7 @@ class _Layout2 extends State<Layout2> {
               children: <Widget>[
                 //double.parse(myControllerAdditional.text)
                 CardItem(
-                  label: "Additional",
+                  label: "Added \neach year:",
                   pathIcon: "assets/Additional_icon.png",
                   symbol: r"$",
                   valueToDisplay: additional,
@@ -256,9 +256,10 @@ class _Layout2 extends State<Layout2> {
                 ),
                 // double.parse(myControllerCompoundTimes.text)
                 CardItem(
-                  label: "Compound \nCycle",
+                  label: "Years:",
                   pathIcon: "assets/cycle.png",
                   valueToDisplay: compoundTimes,
+                  isYear: true,
                 ),
               ],
             ),
@@ -269,7 +270,7 @@ class _Layout2 extends State<Layout2> {
             left: 15,
             right: 15,
             child: CardItem(
-                label: "Final Value",
+                label: "Your investment is now worth:",
                 pathIcon: "assets/finalvalue.png",
                 symbol: r"$",
                 valueToDisplay: finalValue,
