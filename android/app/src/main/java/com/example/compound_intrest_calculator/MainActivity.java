@@ -1,4 +1,4 @@
-package com.example.compound_intrest_calculator;
+package com.advee.easy_compound;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

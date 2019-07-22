@@ -95,10 +95,7 @@ class _Layout2 extends State<Layout2> {
 
   @override
   Widget build(BuildContext context) {
-    print( "Width:" + MediaQuery.of(context).size.width.toString());
-    print("height:" +MediaQuery.of(context).size.height.toString());
     return Scaffold(
-      
       body: Stack(
         children: <Widget>[
           //BLU COVER ROUNDED
@@ -158,7 +155,7 @@ class _Layout2 extends State<Layout2> {
               //TEXTFIELD: MONTHLY
               Padding(
                   padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-                  child: customTextField(myControllerAdditional, "Additional year investment")),
+                  child: customTextField(myControllerAdditional, "Additional year investment",suffix:"+ each year")),
             ],
           ),
           //BUTTON
