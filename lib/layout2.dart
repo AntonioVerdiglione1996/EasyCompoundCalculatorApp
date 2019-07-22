@@ -1,5 +1,5 @@
-import 'package:compound_intrest_calculator/cardItem.dart';
-import 'package:compound_intrest_calculator/customColors.dart';
+import 'package:EasyCompound/cardItem.dart';
+import 'package:EasyCompound/customColors.dart';
 import 'package:flutter/material.dart';
 
 import 'raisedGradientButton.dart';
