@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'customColors.dart';
 class RaisedGradientButton extends StatelessWidget {
   final Widget child;
   final Gradient gradient;
@@ -25,9 +27,9 @@ class RaisedGradientButton extends StatelessWidget {
         gradient: gradient,
         boxShadow: [
         BoxShadow(
-          color: Colors.grey[500],
-          offset: Offset(0.0, 1.5),
-          blurRadius: 1.5,
+          color: CustomColors.blue_shadow,
+          offset: Offset(0.0, 2),
+          blurRadius: 16,
         ),
       ]
       ),

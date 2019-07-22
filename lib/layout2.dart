@@ -68,6 +68,9 @@ class _Layout2 extends State<Layout2> {
           controller.text = value;
         });
       },
+      onTap: (){
+        controller.clear();
+      },
       controller: controller,
       decoration: InputDecoration(
           border: OutlineInputBorder(
@@ -147,7 +150,7 @@ class _Layout2 extends State<Layout2> {
                     //TEXTFIELD: COMPOUND TIMES
                     Expanded(
                         child: customTextField(
-                            myControllerCompoundTimes, "cycles",suffix: "year")),
+                            myControllerCompoundTimes, "Years")),
                   ],
                 ),
               ),
@@ -155,7 +158,7 @@ class _Layout2 extends State<Layout2> {
               //TEXTFIELD: MONTHLY
               Padding(
                   padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-                  child: customTextField(myControllerAdditional, "Additional for each cycle")),
+                  child: customTextField(myControllerAdditional, "Additional year investment")),
             ],
           ),
           //BUTTON
@@ -177,6 +180,7 @@ class _Layout2 extends State<Layout2> {
                     setState(() {
                       myControllerAdditional.text = "0";
                     });
+                    FocusScope.of(context).requestFocus(new FocusNode());
                   }
                   isFirstTimeCycle = true;
                   initialInvestment =
@@ -201,7 +205,7 @@ class _Layout2 extends State<Layout2> {
               style: TextStyle(
                   color: CustomColors.blue_sky,
                   fontWeight: FontWeight.bold,
-                  fontSize: 15,
+                  fontSize: 12,
                   letterSpacing: 0.25),
             ),
           ),
@@ -264,7 +268,7 @@ class _Layout2 extends State<Layout2> {
           ),
           //BIG CARD
           Positioned(
-            top: 540,
+            top: 535,
             left: 15,
             right: 15,
             child: CardItem(

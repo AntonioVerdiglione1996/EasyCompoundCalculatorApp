@@ -12,7 +12,7 @@ class CardItem extends StatefulWidget {
   CardItem(
       {this.label,
       this.pathIcon,
-      this.labelFontSize = 18,
+      this.labelFontSize = 16,
       this.valueToDisplay,
       this.symbol = "",
       this.width = 181});
@@ -25,6 +25,7 @@ class _CardItem extends State<CardItem> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Card(
+      elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
           ),

@@ -3,6 +3,23 @@ import 'package:flutter/material.dart';
 class CustomColors {
   CustomColors._();
 
+  static const int blue_sh = 0x41003f64;
+  static const MaterialColor blue_shadow = MaterialColor(
+    blue_sh,
+    <int, Color>{
+      50: Color(0x41003f64),
+      100: Color(0x41003f64),
+      200: Color(0x41003f64),
+      300: Color(0x41003f64),
+      400: Color(0x41003f64),
+      500: Color(blue_sh),
+      600: Color(0x41003f64),
+      700: Color(0x41003f64),
+      800: Color(0x41003f64),
+      900: Color(0x41003f64),
+    },
+  );
+
   static const int blue = 0xFF389dbd;
 
   static const MaterialColor blue_sky = MaterialColor(
