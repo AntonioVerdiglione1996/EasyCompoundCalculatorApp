@@ -13,11 +13,11 @@ class AdMobHelper {
   static BannerAd _bannerAd;
 
   static BannerAd createBannerAd(){
-    return BannerAd(adUnitId: BannerAd.testAdUnitId,size: AdSize.smartBanner ,targetingInfo: targetingInfo);
+    return BannerAd(adUnitId: "ca-app-pub-6676530801589270/5476371629",size: AdSize.smartBanner ,targetingInfo: targetingInfo);
   }
 
   static void initStateAd(){
-    FirebaseAdMob.instance.initialize(appId:  BannerAd.testAdUnitId);
+    FirebaseAdMob.instance.initialize(appId: "ca-app-pub-6676530801589270~3472013058");
     _bannerAd = createBannerAd()..load()..show(anchorType: AnchorType.bottom);
   }
 
