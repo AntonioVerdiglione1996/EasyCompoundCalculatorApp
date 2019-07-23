@@ -172,12 +172,16 @@ class _Layout2 extends State<Layout2> {
                     letterSpacing: 0.25),
               ),
               onPressed: () {
+
                 setState(() {
+                FocusScope.of(context).requestFocus(new FocusNode());
+
+
                   if (myControllerAdditional.text == "") {
                     setState(() {
                       myControllerAdditional.text = "0";
                     });
-                    FocusScope.of(context).requestFocus(new FocusNode());
+                    
                   }
                   isFirstTimeCycle = true;
                   initialInvestment =
@@ -188,6 +192,7 @@ class _Layout2 extends State<Layout2> {
                   finalValue = calculateCompound(
                       initialInvestment, roi, additional, compoundTimes);
                 });
+
               },
               gradient: LinearGradient(colors: [Colors.white, Colors.white]),
             ),
