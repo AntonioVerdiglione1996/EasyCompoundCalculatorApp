@@ -4,12 +4,12 @@ import 'package:EasyCompound/customColors.dart';
 import 'package:flutter/material.dart';
 import 'raisedGradientButton.dart';
 
-class Layout2 extends StatefulWidget {
+class Layout extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _Layout2();
+  State<StatefulWidget> createState() => _Layout();
 }
 
-class _Layout2 extends State<Layout2> {
+class _Layout extends State<Layout> {
   double calculateCompound(double investment, double roi, double monthlyInvest,
       double timesCompounded) {
     double value = investment;
@@ -42,6 +42,7 @@ class _Layout2 extends State<Layout2> {
     additional = 0.0;
     compoundTimes = 0.0;
     finalValue = 0.0;
+    
     AdMobHelper.initStateAd();
 
     super.initState();

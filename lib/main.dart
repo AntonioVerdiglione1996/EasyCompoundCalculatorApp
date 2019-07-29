@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'layout2.dart';
+
+import 'layout.dart';
+import 'newTestKayout.dart';
 
 void main(){
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Layout2(),
+      home: TestLayout(),
     );
   }
 }
