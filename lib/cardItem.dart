@@ -66,7 +66,7 @@ class _CardItem extends State<CardItem> {
                       ? widget.valueToDisplay.toStringAsFixed(2) +
                           " ${widget.symbol}"
                       : widget.valueToDisplay.toStringAsFixed(0),
-                  style: TextStyle(color: Colors.grey[800], fontSize: 22),
+                  style: TextStyle(color: Colors.grey[800], fontSize: 19),
                 )),
           ],
         ),
