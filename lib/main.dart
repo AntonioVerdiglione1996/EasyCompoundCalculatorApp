@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'layout.dart';
-import 'newTestKayout.dart';
+import 'newTestLayout.dart';
 
 void main(){
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
